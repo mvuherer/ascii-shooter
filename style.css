@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+
+.wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    max-height: 100vh;
+}
+.the-numbers {
+    font-family: monospace;
+    font-size: 32px;
+    font-weight: bold;
+    width: 600px;
+}
+.the-score {
+    display: inline-block;
+    text-align: right;
+    width: 300px;
+}
+.the-life {
+    display: inline-block;
+    text-align: left;
+    width: 280px;
+}
+.the-game {
+    font-family: sans-serif;
+    background: black;
+    color: white;
+    height: 600px;
+    position: relative;
+    width: 600px;
+}
+.the-player {
+    bottom: 0;
+    position: absolute;
+}
+.the-bullet {
+    height: 8px;
+    line-height: 1px;
+    position: absolute;
+}
+.the-enemy {
+    position: absolute;
+}
+.the-game-over {
+    position: absolute;
+    top: 50%;
+    left: 251.545px;
+    color: red;
+    cursor: pointer;
+}
+
+iframe {
+    display: none;
+}
