@@ -16,11 +16,6 @@ var gameOverAudio = new Audio('gameOver.mp3');
 var pewAudio = new Audio('pew.mp3');
 var boomAudio = new Audio('boom.mp3');
 var musicAudio = new Audio('music.mp3');
-musicAudio.play();
-musicAudio.addEventListener('ended', () => {
-    musicAudio.currentTime = 0;
-    musicAudio.play();
-});
 
 var currentScore = 0;
 var currentLife = 100;
@@ -30,7 +25,9 @@ var currentFireSpeed = 100;
 var currentBulletSpeed = 1;
 var currentEnemySpeed = 10;
 var currentSpawnSpeed = 500;
+
 var isGameOver = false;
+var isGameStarted = false;
 
 var game = document.querySelector('.the-game');
 
@@ -193,11 +190,21 @@ function spawn() {
     enemyId++;
 }
 
-spawnInterval = setInterval(spawn, currentSpawnSpeed);
-
 document.addEventListener('keydown', (e) => {
     if (isGameOver) {
         return;
+    }
+
+    if (!isGameStarted) {
+        isGameStarted = true;
+
+        spawnInterval = setInterval(spawn, currentSpawnSpeed);
+
+        musicAudio.play();
+        musicAudio.addEventListener('ended', () => {
+            musicAudio.currentTime = 0;
+            musicAudio.play();
+        });
     }
 
     if (e.key === 'ArrowRight') {
